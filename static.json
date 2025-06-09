@@ -7,22 +7,32 @@
   "data": {
     "version": "1.0.0",
     "attributes": {
-      "metadata": {
-        "title": "Search | Globus Search Portal"
-      },
+      "client_id": "7bd94088-b10f-453f-8796-e51bbd2026d2",
       "content": {
         "headline": "Globus Search Portal"
       },
       "features": {
+        "jsonata": true,
         "transfer": false
+      },
+      "metadata": {
+        "title": "Search | Globus Search Portal"
       },
       "components": {
         "Result": {
-          "heading": "entries[0].content.project",
+          "heading": "$substringBefore(subject, '|')",
           "fields": [
             {
-              "label": "Project",
-              "property": "entries[0].content.project"
+              "label": "Activity ID",
+              "property": "entries[0].content.activity_id"
+            },
+            {
+              "label": "Dataset ID",
+              "property": "$substringBefore(subject, '|')"
+            },
+            {
+              "label": "Globus URL",
+              "property": "entries[0].content.url[1]"
             }
           ]
         }
@@ -32,12 +42,32 @@
           "index": "a8ef4320-9e5a-4793-837b-c45161ca1845",
           "facets": [
             {
+              "name": "Activity ID",
+              "field_name": "activity_id",
+              "type": "terms",
+              "size": 10
+            },
+            {
               "name": "Project",
               "field_name": "project",
               "type": "terms",
               "size": 10
+            },
+            {
+              "name": "Globus URL",
+              "field_name": "url",
+              "type": "terms",
+              "size": 10
             }
           ]
+        },
+        "transfer": {
+          "collection": {
+            "property": "$split($split(gmeta[0].entries[0].content.url[1], 'globus:')[1], '/')[0]"
+          },
+          "path": {
+            "property": "$substringBefore($replace(gmeta[0].entries[0].content.url[1], 'globus:' & $split($split(gmeta[0].entries[0].content.url[1], 'globus:')[1], '/')[0], ''), '|Globus')"
+          }
         }
       }
     }
