@@ -18,32 +18,22 @@
       },
       "components": {
         "Result": {
-          "heading": "entries[0].content.name",
+          "heading": "entries[0].content.project",
           "fields": [
             {
-              "label": "Tags",
-              "property": "entries[0].content.tags"
-            },
-            {
-              "label": "Region",
-              "property": "entries[0].content.region"
+              "label": "Project",
+              "property": "entries[0].content.project"
             }
           ]
         }
       },
       "globus": {
         "search": {
-          "index": "78b92aca-e361-4307-8f66-bc448f20e2c3",
+          "index": "a8ef4320-9e5a-4793-837b-c45161ca1845",
           "facets": [
             {
-              "name": "Tags",
-              "field_name": "tags",
-              "type": "terms",
-              "size": 10
-            },
-            {
-              "name": "Region",
-              "field_name": "region",
+              "name": "Project",
+              "field_name": "project",
               "type": "terms",
               "size": 10
             }
