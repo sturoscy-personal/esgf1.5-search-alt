@@ -30,8 +30,8 @@
               "property": "$substringBefore(subject, '|')"
             },
             {
-              "label": "Globus URL",
-              "property": "entries[0].content.url[1]"
+              "label": "Type",
+              "property": "entries[0].content.type"
             }
           ],
           "globus": {
@@ -66,8 +66,8 @@
               "size": 10
             },
             {
-              "name": "Globus URL",
-              "field_name": "url",
+              "name": "Type",
+              "field_name": "type",
               "type": "terms",
               "size": 10
             }
