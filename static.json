@@ -34,7 +34,17 @@
               "label": "Globus URL",
               "property": "entries[0].content.url[1]"
             }
-          ]
+          ],
+          "globus": {
+            "transfer": {
+              "collection": {
+                "property": "$split($split(entries[0].content.url[1], 'globus:')[1], '/')[0]"
+              },
+              "path": {
+                "property": "$substringBefore($replace(entries[0].content.url[1], 'globus:' & $split($split(entries[0].content.url[1], 'globus:')[1], '/')[0], ''), '|Globus')"
+              }
+            }
+          }
         }
       },
       "globus": {
@@ -60,14 +70,6 @@
               "size": 10
             }
           ]
-        },
-        "transfer": {
-          "collection": {
-            "property": "$split($split(gmeta[0].entries[0].content.url[1], 'globus:')[1], '/')[0]"
-          },
-          "path": {
-            "property": "$substringBefore($replace(gmeta[0].entries[0].content.url[1], 'globus:' & $split($split(gmeta[0].entries[0].content.url[1], 'globus:')[1], '/')[0], ''), '|Globus')"
-          }
         }
       }
     }
