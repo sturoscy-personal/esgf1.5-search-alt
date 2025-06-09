@@ -7,13 +7,12 @@
   "data": {
     "version": "1.0.0",
     "attributes": {
-      "client_id": "7bd94088-b10f-453f-8796-e51bbd2026d2",
       "content": {
         "headline": "Globus Search Portal"
       },
       "features": {
         "jsonata": true,
-        "transfer": false
+        "transfer": true
       },
       "metadata": {
         "title": "Search | Globus Search Portal"
@@ -48,6 +47,9 @@
         }
       },
       "globus": {
+        "application": {
+          "client_id": "7bd94088-b10f-453f-8796-e51bbd2026d2"
+        },
         "search": {
           "index": "a8ef4320-9e5a-4793-837b-c45161ca1845",
           "facets": [
